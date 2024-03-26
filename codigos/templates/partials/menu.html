@@ -1,0 +1,23 @@
+{% load static %}
+<div class="container">
+    <header>
+        <img src="/static/assets/photos/logo_prefeitura.jpeg" alt="Logo do Conecta Recife">
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'add_bi' %}">Adicionar BI</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+        <div class="cabecalho__busca">
+            <div class="busca__fundo">
+                <form action="{% url 'search' %}">
+                    <input class="busca__input" type="text" name="search" placeholder="Pesquisa">
+                    <button type="submit">
+                        <img class="busca__icone" src="{% static '/assets/icons/search.png' %}" alt="ícone de search">
+                    </button>
+                </form>
+            </div>
+        </div>
+    </header>

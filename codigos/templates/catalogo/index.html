@@ -1,0 +1,19 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+{% block content %}
+    <h1>Catálogo de BIs</h1>
+    <div class="catalog">
+        {% if cards %}
+        {% for bicard in cards %}
+        <div class="url-item">
+            <h2>{{ bicard.name }}</h2>
+            <p>{{ bicard.description }}</p>
+            <a href="{{ bicard.url }}" target='_blank'><button type="submit" style="padding: 5px;">Visitar Site</button></a>
+            <a href='{% url 'edit_bi' %}' target='_blank'><button type="submit" style="padding: 5px;">Editar</button></a>
+            <a href='{% url 'delete_bi' %}'><button type="submit" style="padding: 5px;">Deletar</button></a>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

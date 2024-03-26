@@ -1,0 +1,17 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+{% block content %}
+    <h1>Catálogo de BIs</h1>
+    <div class="catalog">
+        {% if cards %}
+        {% for bicard in cards %}
+        <div class="url-item">
+            <h2>{{ bicard.name }}</h2>
+            <p>{{ bicard.description }}</p>
+            <a href="{{ bicard.url }}">Visitar Site</a>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
