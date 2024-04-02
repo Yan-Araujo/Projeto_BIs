@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from catalogo.models import BiCard
 from catalogo.forms import BiCardsForms
+from django.contrib import messages
 
 
 def index(request):
@@ -19,18 +20,34 @@ def search(request):
     return render(request, 'catalogo/search.html', {'cards': bicards})
 
 def add_bi(request):
+    if not request.user.is_authenticated:
+        messages.error(request, 'Efetue Login')
+        return redirect('login')
+
     form = BiCardsForms
 
     if request.method == 'POST':
         form = BiCardsForms(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            messages.success(request, 'BI adicionado com sucesso')
             return redirect('add_bi')
         
     return render(request, 'catalogo/add_new_bi.html', {'form': form})
 
 def edit_bi(request):
+    if not request.user.is_authenticated:
+        messages.error(request, 'Efetue Login')
+        return redirect('login')
+        
     return render(request, 'catalogo/edit_bi.html')
 
-def delete_bi(request):
-    return render(request, 'catalogo/delete_bi.html')
+def delete_bi(request, card_id):
+    if not request.user.is_authenticated:
+        messages.error(request, 'Efetue Login')
+        return redirect('login')
+
+    bicard = BiCard.objects.get(id=card_id)
+    bicard.delete()
+    messages.error(request, 'BI deletado com sucesso')
+    return redirect('index')

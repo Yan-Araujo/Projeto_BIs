@@ -2,12 +2,17 @@
 <div class="container">
     <header>
         <img src="/static/assets/photos/logo_prefeitura.jpeg" alt="Logo do Conecta Recife">
+        {% for message in messages %}
+        <div class="alert alert-primary">
+            <p id="messages">{{message}}</p>
+        </div>
+        {% endfor %}
         <nav>
             <ul>
                 <li><a href="{% url 'index' %}">Home</a></li>
                 <li><a href="{% url 'add_bi' %}">Adicionar BI</a></li>
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Logout</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
             </ul>
         </nav>
         <div class="cabecalho__busca">
