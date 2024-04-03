@@ -19,6 +19,7 @@ def search(request):
 
     return render(request, 'catalogo/search.html', {'cards': bicards})
 
+
 def add_bi(request):
     if not request.user.is_authenticated:
         messages.error(request, 'Efetue Login')
@@ -35,12 +36,24 @@ def add_bi(request):
         
     return render(request, 'catalogo/add_new_bi.html', {'form': form})
 
-def edit_bi(request):
+
+def edit_bi(request, card_id):
     if not request.user.is_authenticated:
         messages.error(request, 'Efetue Login')
         return redirect('login')
+    
+    bicard = BiCard.objects.get(id=card_id)
+    form = BiCardsForms(instance=bicard)
+
+    if request.method == 'POST':
+        form = BiCardsForms(request.POST, request.FILES, instance=bicard)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Card atualizado com sucesso')
+            return redirect('index')
         
-    return render(request, 'catalogo/edit_bi.html')
+    return render(request, 'catalogo/edit_bi.html', {'form': form, 'card_id': card_id})
+
 
 def delete_bi(request, card_id):
     if not request.user.is_authenticated:

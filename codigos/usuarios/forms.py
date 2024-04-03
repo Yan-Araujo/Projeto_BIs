@@ -9,7 +9,7 @@ class LoginForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 'class': 'form-control',
-                'placeholder': 'Digite seu nome de Usuário:'
+                'placeholder': 'Digite seu nome de Usuário'
             }
         )
     )
@@ -18,10 +18,10 @@ class LoginForm(forms.Form):
         label='Senha',
         required=True,
         max_length=100,
-        widget=forms.TextInput(
+        widget=forms.PasswordInput(
             attrs={
                 'class': 'form-control',
-                'placeholder': 'Digite sua Senha:'
+                'placeholder': 'Digite sua Senha'
             }
         )
     )

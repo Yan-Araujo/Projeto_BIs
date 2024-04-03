@@ -5,6 +5,6 @@ urlpatterns = [
     path('', index, name='index'),
     path('search', search, name='search'),
     path('add_bi', add_bi, name='add_bi'),
-    path('edit_bi', edit_bi, name='edit_bi'),
+    path('edit_bi/<int:card_id>', edit_bi, name='edit_bi'),
     path('delete_bi/<int:card_id>', delete_bi, name='delete_bi'),
 ]
