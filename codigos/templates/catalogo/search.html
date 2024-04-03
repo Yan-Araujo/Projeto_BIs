@@ -9,8 +9,8 @@
             <h2>{{ bicard.name }}</h2>
             <p>{{ bicard.description }}</p>
             <a href="{{ bicard.url }}" target='_blank'><button type="submit" style="padding: 5px;">Visitar Site</button></a>
-            <a href='{% url 'edit_bi' %}' target='_blank'><button type="submit" style="padding: 5px;">Editar</button></a>
-            <a href='{% url 'delete_bi' %}'><button type="submit" style="padding: 5px;">Deletar</button></a>
+            <a href='{% url 'edit_bi' %}'><button type="submit" style="padding: 5px;">Editar</button></a>
+            <a href='{% url 'delete_bi' bicard.id %}'><button type="submit" style="padding: 5px;">Deletar</button></a>
         </div>
         {% endfor %}
         {% endif %}
