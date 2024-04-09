@@ -46,7 +46,7 @@ def edit_bi(request, card_id):
     form = BiCardsForms(instance=bicard)
 
     if request.method == 'POST':
-        form = BiCardsForms(request.METHOD, request.FILES, instance=bicard)
+        form = BiCardsForms(request.POST, request.FILES, instance=bicard)
         if form.is_valid():
             form.save()
             messages.success(request, 'Card atualizado com sucesso')
