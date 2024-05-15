@@ -72,21 +72,21 @@ color: #666;
 .cabecalho__busca {
 align-items: center;
 border-radius: 10px;
-background: linear-gradient(45deg, #154cff, #7792ea);
 display: flex;
 height: auto;
 justify-content: space-between;
 padding: 2px;
+padding-right: 50px;
 width: auto;
 }
-.busca__fundo {
+/* .busca__fundo {
 align-items: center;
 background-color: #6199e3;
 border-radius: 8px;
 display: flex;
 margin: 0 auto;
 width: 100%;
-}
+} */
 .busca__input {
 align-items: center;
 background-color: transparent;
@@ -112,17 +112,19 @@ height: 2rem;
 }
 
 form {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 form label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
     
-}form input[type="text"], form input[type="password"],
+}
+form input[type="text"], form input[type="password"],
 form textarea {
     width: 100%;
     padding: 10px;
+    padding-right: 3px;
     margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
