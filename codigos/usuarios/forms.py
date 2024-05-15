@@ -23,6 +23,6 @@ class LoginForm(forms.Form):
                 'class': 'form-control',
                 'placeholder': 'Digite sua Senha'
             }
-        )
+        ),
     )
 

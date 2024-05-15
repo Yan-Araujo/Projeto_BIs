@@ -31,4 +31,5 @@ def login(request):
 
 def logout(request):
     auth.logout(request)
+    messages.error(request, "Logout Realizado")
     return redirect('login')

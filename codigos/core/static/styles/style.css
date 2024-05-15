@@ -118,8 +118,8 @@ form label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-}
-form input[type="text"],
+    
+}form input[type="text"], form input[type="password"],
 form textarea {
     width: 100%;
     padding: 10px;
@@ -139,6 +139,7 @@ form input[type="submit"] {
     cursor: pointer;
     transition: background-color 0.3s;
 }
+
 form input[type="submit"]:hover {
     background-color: #0056b3;
 }

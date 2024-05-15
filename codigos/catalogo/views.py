@@ -5,11 +5,19 @@ from django.contrib import messages
 
 
 def index(request):
+    if not request.user.is_authenticated:
+        messages.error(request, 'Efetue Login')
+        return redirect('login')
+    
     bicards = BiCard.objects.filter(ativo=True)
     return render(request, 'catalogo/index.html', {'cards': bicards})
 
 
 def search(request):
+    if not request.user.is_authenticated:
+        messages.error(request, 'Efetue Login')
+        return redirect('login')
+
     bicards = BiCard.objects.filter(ativo=True)
 
     if 'search' in request.GET:
